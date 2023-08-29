@@ -6,7 +6,6 @@ import './components/NavBar/NavBar.css';
 import './components/ItemListContainer/ItemListContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-
 function App() {
   return (
     <div className="App">
