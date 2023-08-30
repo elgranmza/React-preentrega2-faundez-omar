@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ItemCount.css';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [quantity, setQuantity] = useState(initial);
@@ -10,7 +11,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     };
 
     const decrement = () => {
-        if (quantity > 0) { // Cambiado de 'quantity > stock' a 'quantity > 0'
+        if (quantity > initial) { 
             setQuantity(quantity - 1);
         }
     };
@@ -18,7 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div className='Counter'>
             <div className='Controls'>
-                <button className="Button" onClick={decrement} disabled={quantity === 0}>
+                <button className="Button" onClick={decrement} disabled={quantity === initial}>
                     -
                 </button>
                 <h4 className="Number">{quantity}</h4>

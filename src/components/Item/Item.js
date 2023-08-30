@@ -1,4 +1,11 @@
-const Item = ({id, name, img, price, stock }) => {
+import React from "react";
+import ItemCount from '../ItemCount/ItemCount';
+import './Item.css';
+
+const Item = ({ name, img, price, stock }) => {
+    const handleAddToCart = (quantity) => {
+    };
+
     return (
         <article className="card-item">
             <div className="card-header">
@@ -18,9 +25,10 @@ const Item = ({id, name, img, price, stock }) => {
                 </p>
             </div>
             <div className="item-footer">
-                <button className="option">Ver detalle</button>
+                <ItemCount stock={stock} initial={1} onAdd={handleAddToCart} />
             </div>
         </article>
     );
 };
-export default Item
+
+export default Item;

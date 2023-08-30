@@ -1,26 +1,30 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getProductById } from '../asyncMock';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import './ItemDetailContainer.css';
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState(null); // Cambiado a 'product' en lugar de 'products'
+    const [product, setProduct] = useState(null);
+
+    const { itemId } = useParams(); 
 
     useEffect(() => {
-        getProductById('1')
+        getProductById(itemId) 
             .then(response => {
-                setProduct(response); // Cambiado a 'setProduct'
+                setProduct(response);
             })
             .catch(error => {
-                console.error(error);
+                console.error("Error fetching product:", error);
             });
-    }, []);
+    }, [itemId]);
 
     return (
         <div className="ItemDetailContainer">
-            {/* Cambiado el spread operator */}
-            {product && <ItemDetail {...product} />} 
+            {product && <ItemDetail {...product} />}
         </div>
     );
 };
 
 export default ItemDetailContainer;
+

@@ -1,32 +1,37 @@
 import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <a className="navbar-item" href="/">
+                <NavLink to="/" className="navbar-item">
                     Mi Sitio
-                </a>
+                </NavLink>
             </div>
             <div className="navbar-menu">
                 <div className="navbar-start">
-                    <a className="navbar-item" href="/">
+                    <NavLink exact to="/" className="navbar-item">
                         Inicio
-                    </a>
-                    <a className="navbar-item" href="/acerca">
+                    </NavLink>
+                    <NavLink to="/acerca" className="navbar-item">
                         Acerca de
-                    </a>
-                    <a className="navbar-item" href="/servicios">
+                    </NavLink>
+                    <NavLink to="/servicios" className="navbar-item">
                         Servicios
-                    </a>
-                    <a className="navbar-item" href="/contacto">
+                    </NavLink>
+                    <NavLink to="/contacto" className="navbar-item">
                         Contacto
-                    </a>
+                    </NavLink>
+                </div>
+                <div className='Categories'>
+                    <NavLink to={'/category/audio'} activeClassName='ActiveOption' className='Option'> Audio </NavLink>
+                    <NavLink to={'/category/electrónica'} activeClassName='ActiveOption' className='Option'> Electrónica </NavLink>
+                    <NavLink to={'/category/consola'} activeClassName='ActiveOption' className='Option'> Consola </NavLink>
                 </div>
                 <div className="navbar-end">
                     <CartWidget />
-                    5
                 </div>
             </div>
         </nav>
