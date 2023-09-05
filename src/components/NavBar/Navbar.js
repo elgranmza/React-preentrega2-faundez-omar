@@ -36,8 +36,11 @@ const NavBar = () => {
                     <NavLink to='/category/consola' activeClassName='ActiveOption' className='Option'>
                         Consola
                     </NavLink>
+                    
+                    <NavLink to='/item/1' activeClassName='ActiveOption' className='Option'>
+                        Ver Producto
+                    </NavLink>
                 </div>
-
                 <div className="navbar-end">
                     <CartWidget />
                 </div>
@@ -47,4 +50,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
