@@ -4,7 +4,6 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 import { useParams } from "react-router-dom";
 
-
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null);
 
@@ -22,10 +21,15 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="ItemDetailContainer">
-            {product && <ItemDetail {...product} />}
+            {product ? (
+                <>
+                    <ItemDetail {...product} />
+                </>
+            ) : (
+                <p>Cargando detalles del producto...</p>
+            )}
         </div>
     );
 };
 
 export default ItemDetailContainer;
-
